@@ -5,12 +5,12 @@ const api = {
     return http.login('/login', { email, password });
   },
 
-  users() {
-    return http.get('/users')
-  },
-
   me() {
     return http.get('/me')
+  },
+
+  getUsers() {
+    return http.get('/users')
   }
 }
 
