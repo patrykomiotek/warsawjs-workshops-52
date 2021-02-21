@@ -4,13 +4,13 @@ import {
 } from '@chakra-ui/react';
 import { useForm }  from 'react-hook-form';
 
+import api from '../../api';
+
 function LoginForm() {
   const { register, errors, handleSubmit, formState } = useForm();
 
   const submitForm = (values) => {
-    return fetch('/login', { method: 'POST' })
-      .then(response => response.json())
-      .then(data => console.log(data))
+    return api.login(values.email, values.password)
   }
 
   const validateEmail = (value) => {
