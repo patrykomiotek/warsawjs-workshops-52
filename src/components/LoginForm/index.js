@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Stack, FormControl, FormLabel, Input, FormErrorMessage
+  Button, Stack, FormControl, FormLabel, Input, FormErrorMessage
 } from '@chakra-ui/react';
 import { useForm }  from 'react-hook-form';
 
@@ -8,7 +8,12 @@ function LoginForm() {
   const { register, errors, handleSubmit, formState } = useForm();
 
   const submitForm = (values) => {
-    console.log('form values: ', values)
+    // console.log('form values: ', values)
+    // return new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve()
+    //   }, 3000);
+    // })
   }
 
   return (
@@ -37,6 +42,13 @@ function LoginForm() {
           />
           <FormErrorMessage>{errors.password && errors.email.password}</FormErrorMessage>
         </FormControl>
+        <Button
+          type="submit"
+          colorScheme="blue"
+          isLoading={formState.isSubmitting}
+        >
+          Login
+        </Button>
       </Stack>
     </form>
   );
