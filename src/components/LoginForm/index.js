@@ -10,7 +10,11 @@ function LoginForm() {
   const { register, errors, handleSubmit, formState } = useForm();
 
   const submitForm = (values) => {
-    return api.login(values.email, values.password)
+    return api
+      .login(values.email, values.password)
+      .then(result => {
+        sessionStorage.setItem('isAuthenticated', 1)
+      })
   }
 
   const validateEmail = (value) => {
