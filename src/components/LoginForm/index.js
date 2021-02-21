@@ -8,6 +8,11 @@ function LoginForm() {
   const { register, errors, handleSubmit, formState } = useForm();
 
   const submitForm = (values) => {
+
+    return fetch('/login', { method: 'POST' })
+      .then(response => response.json())
+      .then(data => console.log(data))
+
     // console.log('form values: ', values)
     // return new Promise((resolve, reject) => {
     //   setTimeout(() => {
